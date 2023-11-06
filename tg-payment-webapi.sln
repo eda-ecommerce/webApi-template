@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tg-payment-webapi", "tg-payment-webapi\tg-payment-webapi.csproj", "{4D241824-4931-484D-A399-3E01EDF47BA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D241824-4931-484D-A399-3E01EDF47BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D241824-4931-484D-A399-3E01EDF47BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D241824-4931-484D-A399-3E01EDF47BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D241824-4931-484D-A399-3E01EDF47BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9A4E550-18F6-41E1-979E-B115F2FA0FF2}
+	EndGlobalSection
+EndGlobal
