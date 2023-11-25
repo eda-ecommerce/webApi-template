@@ -1,4 +1,4 @@
-﻿public class SayingToSayingDtoRegister : IRegister
+﻿public class PaymentToPaymentDtoRegister : IRegister
 {
     public void Register(TypeAdapterConfig config)
     {

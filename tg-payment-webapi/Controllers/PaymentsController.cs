@@ -22,5 +22,31 @@ public class PaymentsController : ControllerBase
 
         return Ok(payments);
     }
+
+    [HttpPut("Update/{id}")]
+    public async Task<IActionResult> UpdatePayment(Guid id, [FromBody] PaymentUpdateDto paymentUpdateDto)
+    {
+        paymentUpdateDto.UserId = id;
+
+        // Find payment
+        var payment = await _paymentService.GetPayment(id);
+
+        if (payment == null)
+        {
+            return NotFound($"Payment not found: {id}");
+        }
+
+
+        try
+        {
+            await _paymentService.UpdatePayment(paymentUpdateDto);
+        }
+        catch (Exception e)
+        {
+            return NotFound(e.Message);
+        }
+
+        return Ok();
+    }
 }
 

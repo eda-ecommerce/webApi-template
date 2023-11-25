@@ -23,5 +23,36 @@
 
         return paymentDto;
     }
+
+    public async Task<PaymentDto?> GetPayment(Guid paymentId)
+    {
+        var payment = await _paymentRepository.GetPayment(paymentId);
+
+        if (payment == null)
+        {
+            return null;
+        }
+
+        // Map to Dto
+        var paymentDto = payment.Adapt<PaymentDto>();
+
+        return paymentDto;
+    }
+
+    public async Task UpdatePayment(PaymentUpdateDto paymentUpdateDto)
+    {
+        var payment = await _paymentRepository.GetPayment((Guid)paymentUpdateDto.UserId);
+
+        if (payment == null)
+        {
+            throw new Exception($"Payment not found: {paymentUpdateDto.UserId}");
+        }
+
+        payment.Firstname = paymentUpdateDto.Firstname;
+        payment.Lastname = paymentUpdateDto.Lastname;
+        payment.Username = paymentUpdateDto.Username;
+
+        await _paymentRepository.UpdatPayment(payment);
+    }
 }
 

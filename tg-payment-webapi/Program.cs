@@ -1,15 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // CORS
-var ProverbAllowSpecificOrigins = "_ProverbAllowSpecificOrigins";
+var PaymentAllowSpecificOrigins = "_paymentAllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: ProverbAllowSpecificOrigins,
+    options.AddPolicy(name: PaymentAllowSpecificOrigins,
         builder => {
             builder
-                .WithOrigins("http://localhost:4200")
-                .WithOrigins("https://sayings.marckevinzenzen.de")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -24,7 +22,7 @@ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
 // Add Mapster Mapping
 var typeAdapterConfig = TypeAdapterConfig.GlobalSettings;
-typeAdapterConfig.Scan(Assembly.GetAssembly(typeof(SayingToSayingDtoRegister)));
+typeAdapterConfig.Scan(Assembly.GetAssembly(typeof(PaymentToPaymentDtoRegister)));
 // register the mapper as Singleton service for my application
 var mapperConfig = new Mapper(typeAdapterConfig);
 builder.Services.AddSingleton<IMapper>(mapperConfig);
@@ -49,7 +47,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // Configure the HTTP request pipeline.
-app.UseCors(ProverbAllowSpecificOrigins);
+app.UseCors(PaymentAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
 
