@@ -20,18 +20,6 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
-      env:
-        "AllowedHosts": "*"
-        "ConnectionStrings": ""
-        "ConnectionStrings:SqlServer": "Data Source=localhost,1433;Initial Catalog=payment;User ID=sa;Password=yourStrong(!)Password;TrustServerCertificate=True"
-        "Kafka": ""
-        "Kafka:Broker": "localhost:29092"
-        "Kafka:GroupId": "ecommerce-gp"
-        "Kafka:Topic1": "payment"
-        "Logging": ""
-        "Logging:LogLevel": ""
-        "Logging:LogLevel:Default": "Information"
-        "Logging:LogLevel:Microsoft.AspNetCore": "Warning"
     - name: Install dependencies
       run: dotnet restore
     - name: Build
