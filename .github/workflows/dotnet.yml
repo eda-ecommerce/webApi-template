@@ -34,7 +34,7 @@ jobs:
         "Logging:LogLevel:Microsoft.AspNetCore": "Warning"
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
+    # - name: Build
+    #   run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
