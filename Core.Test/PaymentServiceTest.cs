@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-
-public class PaymentServiceTest
+﻿public class PaymentServiceTest
 {
     private readonly PaymentService _sut; //system unit test
     private readonly Mock<IPaymentRepository> _paymentRepoMock = new Mock<IPaymentRepository>();
     private readonly ILogger<PaymentService> _logger;
+    private readonly IConfiguration _configuration;
 
 
     public PaymentServiceTest()
     {
-        _sut = new PaymentService(_logger, _paymentRepoMock.Object);
+        _sut = new PaymentService(_logger, _paymentRepoMock.Object, _configuration);
     }
 
     [Fact]
